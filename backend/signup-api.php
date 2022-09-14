@@ -7,7 +7,7 @@
     $password = $data->password;
     $profilePhoto = $data->profilePhoto;
 
-    $stmt = $mysqli->prepare("INSERT INTO users(name, username, email, profile_photo) VALUES(?, ?, ?, ?);");
+    $stmt = $mysqli->prepare("INSERT INTO users(email, name, username, password, profile_photo) VALUES(?, ?, ?, ?, ?);");
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
     $stmt->bind_param("sssss", $email, $name, $username, $hashedPwd, $profilePhoto);
     if($stmt->execute()) {
