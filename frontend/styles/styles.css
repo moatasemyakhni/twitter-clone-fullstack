@@ -34,9 +34,12 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
+    grid-template-areas: 
+    'logoContainer joinContainer';
 }
 
 .index-logo-container {
+    grid-area: logoContainer;
     /* width: 100%; */
     min-width: 60%;
     height: 100%;
@@ -74,6 +77,7 @@
 } */
 
 .index-join-container {
+    grid-area: joinContainer;
     max-width: 60%;
     min-width: 30%;
     height: 100%;
@@ -107,14 +111,15 @@
 }
 
 .index-join-container .privacy-txt {
-    width: 300px;
-    font-size: 11px;
+    width: 266px;
+    font-size: 9px;
     line-height: 12px;
     font-family: "index-page-normal", Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
     color: var(--navbar-txt);
     word-wrap: break-word;
     margin-bottom: 20px;
+    padding: 0 10px;
 }
 
 .index-join-container .privacy-txt .privacy-links {
@@ -152,6 +157,29 @@
 }
 /* end of navbar */
 /* end of index page */
+
+@media screen and (max-width: 1000px) {
+    .index-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'joinContainer'
+    'logoContainer';
+    }
+
+    .index-join-container {
+        width: 90%;
+        margin: auto;
+    }
+
+    .index-join-container .index-mini-title {
+        font-size: 22px;
+    }
+
+    .index-join-container .index-title {
+        font-size: 40px;
+        line-height: 40px;
+    }
+}
 /* utilities */
 img {
     width: 100%;
@@ -159,7 +187,7 @@ img {
 }
 
 .btn {
-    width: 300px;
+    width: 266px;
     border-radius: 30px;
     border: 1px solid transparent;
     padding: 9px 16px;
