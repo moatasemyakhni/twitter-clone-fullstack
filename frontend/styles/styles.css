@@ -2,37 +2,124 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* fonts */
+@font-face {
+    font-family: "index-page-bolder";
+    src: url("../assets/fonts/chirp-extended-heavy-web.woff") format('woff');
+}
+
+@font-face {
+    font-family: "index-page-bold";
+    src: url("../assets/fonts/chirp-bold-web.woff") format('woff');
+}
+
+@font-face {
+    font-family: "index-page-regular";
+    src: url("../assets/fonts/chirp-regular-web.woff") format('woff');
+}
+
+/* fonts */
+:root {
+    --index-color: rgb(15, 20, 25);
 }
 
 .index-container {
     height: 100vh;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
 }
 
 .index-logo-container {
-    width: 100%;
+    /* width: 100%; */
+    min-width: 60%;
     height: 100%;
     background-image: url("../assets/images/images/twitter-index-banner.png");
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
+    /* position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+
+
 .index-logo-container .index-img-wrapper {
-    max-width: 345px;
-    min-width: 300px;
-    height: 250px;
-    position: relative;
-    top: 25%;
-    left: 5%;
-    right: 5%;
+    /* max-width: 345px; */
+    /* min-width: 30px; */
+    max-width: 40%;
+    /* height: 250px; */
+    max-height: 60%;
+    padding: 32px;
+}
+
+.index-join-container {
+    max-width: 60%;
+    min-width: 30%;
+    height: 100%;
+    padding: 36px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: var(--index-color);
+}
+
+.index-join-container .index-logo-wrapper {
+    width: 45px;
+    height: 45px;
+    padding-bottom: 12px;
+}
+
+.index-join-container .index-title {
+    margin: 48px 0;
+    line-height: 84px;
+    font-size: 64px;
+    font-family: "index-page-bolder", Arial, Helvetica, sans-serif;
+}
+
+.index-join-container .index-mini-title {
+    margin-bottom: 32px;
+    font-family: "index-page-bold", Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    line-height: 36px;
 }
 
 /* utilities */
 img {
     width: 100%;
     height: 100%;
+}
+
+.btn {
+    border-radius: 30px;
+    border: 1px solid transparent;
+    padding: 9px 16px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    word-wrap: break-word;
+    font-family: "index-page-bold";
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all ease-out 200ms;
+}
+
+.btn-blue {
+    color: white;
+    background-color: #1d9bf0;
+}
+
+.btn-blue:hover {
+    background-color: #1a8cd8;
 }
 
