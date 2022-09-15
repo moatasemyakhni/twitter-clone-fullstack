@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 /* fonts */
@@ -17,13 +19,14 @@
 }
 
 @font-face {
-    font-family: "index-page-regular";
+    font-family: "index-page-normal";
     src: url("../assets/fonts/chirp-regular-web.woff") format('woff');
 }
 
 /* fonts */
 :root {
-    --index-color: rgb(15, 20, 25);
+    --index-color: #0f1419;
+    --twitter-color: #1d9bf0;
 }
 
 .index-container {
@@ -93,6 +96,29 @@
     line-height: 36px;
 }
 
+.index-join-container .privacy-txt {
+    width: 300px;
+    font-size: 11px;
+    line-height: 12px;
+    font-family: "index-page-normal", Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    color: #536471;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+}
+
+.index-join-container .privacy-txt .privacy-links {
+    color: var(--twitter-color);
+    
+}
+
+.index-join-container > h5 {
+    margin: 40px 0 20px;
+    font-size: 17px;
+    font-family: "index-page-normal", Arial, Helvetica, sans-serif;
+
+}
+
 /* utilities */
 img {
     width: 100%;
@@ -100,6 +126,7 @@ img {
 }
 
 .btn {
+    width: 300px;
     border-radius: 30px;
     border: 1px solid transparent;
     padding: 9px 16px;
@@ -116,10 +143,19 @@ img {
 
 .btn-blue {
     color: white;
-    background-color: #1d9bf0;
+    background-color: var(--twitter-color);
+}
+
+.btn-blue-outline {
+    color: var(--twitter-color);
+    border-color: #cccccc;
+    background-color: transparent;
 }
 
 .btn-blue:hover {
     background-color: #1a8cd8;
 }
 
+.btn-blue-outline:hover {
+    background-color: #1d9bf01a;
+}
