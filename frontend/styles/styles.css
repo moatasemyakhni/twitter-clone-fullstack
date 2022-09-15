@@ -27,6 +27,7 @@
 :root {
     --index-color: #0f1419;
     --twitter-color: #1d9bf0;
+    --navbar-txt: #536471;
 }
 
 .index-container {
@@ -61,7 +62,16 @@
     /* height: 250px; */
     max-height: 60%;
     padding: 32px;
+    /* position: relative;
+    right: 20%; */
 }
+
+/* @media screen and (min-width: 1000px) and (max-width: 1300px) {
+    .index-logo-container .index-img-wrapper {
+        position: relative;
+        right: 20%;
+    }
+} */
 
 .index-join-container {
     max-width: 60%;
@@ -85,7 +95,7 @@
 .index-join-container .index-title {
     margin: 48px 0;
     line-height: 84px;
-    font-size: 64px;
+    font-size: 60px;
     font-family: "index-page-bolder", Arial, Helvetica, sans-serif;
 }
 
@@ -102,7 +112,7 @@
     line-height: 12px;
     font-family: "index-page-normal", Arial, Helvetica, sans-serif;
     margin-bottom: 20px;
-    color: #536471;
+    color: var(--navbar-txt);
     word-wrap: break-word;
     margin-bottom: 20px;
 }
@@ -118,7 +128,30 @@
     font-family: "index-page-normal", Arial, Helvetica, sans-serif;
 
 }
+/* start of navbar */
+.index-navbar-container {
+    width: 93%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 0;
+}
 
+.index-navbar-container a {
+    margin: 0 auto;
+    margin: 4px 0;
+    font-size: 13px;
+    width: auto;
+    color: var(--navbar-txt);
+}
+
+.index-navbar-container a:hover {
+    text-decoration:underline;
+}
+/* end of navbar */
+/* end of index page */
 /* utilities */
 img {
     width: 100%;
