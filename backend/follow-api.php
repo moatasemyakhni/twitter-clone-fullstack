@@ -5,7 +5,7 @@
     $friendID = $data->friendID;
 
     $stmt = $mysqli->prepare("INSERT INTO user_followers VALUES(?, ?);");
-    $stmt->bind_param("dd", $userID, $friendID);
+    $stmt->bind_param("dd", $friendID, $userID);
     if($stmt->execute()) {
         echo json_encode(["success" => true]);
     }else {
