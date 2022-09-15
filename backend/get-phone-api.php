@@ -10,4 +10,6 @@
         }
         $results = $stmt->get_result();
         $result = $results->fetch_assoc();
-        echo json_encode(["phone" => $result['phone']]);
+        $phone = $result['phone'];
+        
+        echo json_encode(['phone' => $phone]);

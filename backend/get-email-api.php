@@ -10,4 +10,6 @@
         }
         $results = $stmt->get_result();
         $result = $results->fetch_assoc();
-        echo json_encode(["email" => $result['email']]);
+        $email = $result['email'];
+        
+        echo json_encode(['email' => $email]);
