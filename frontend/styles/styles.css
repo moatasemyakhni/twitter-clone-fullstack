@@ -58,6 +58,16 @@ img {
     background-color: transparent;
 }
 
+.btn-submit-done {
+    background-color: #272C30;
+    color: white;
+
+}
+
+.btn-submit-done:hover {
+    background-color: rgba(39, 44, 48, 0.9);
+}
+
 .btn-blue:hover {
     background-color: #1a8cd8;
 }
@@ -194,6 +204,28 @@ img {
     text-decoration:underline;
 }
 /* end of navbar */
+/* signup form */
+
+.form-container {
+    width: 100%;
+}
+
+.form-container .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-box {
+    width: 260px;
+    border-radius: 1px;
+    outline: none;
+    height: 40px;
+    padding-left: 5px;
+    border: 1px solid #ccc;
+
+}
 /* end of index page */
 
 @media screen and (max-width: 1000px) {
