@@ -243,12 +243,4 @@ img {
     .index-navbar-container {
         margin-top: 10%;
     }
-
-    .index-navbar-container a {
-        /* margin: 0 auto;
-        margin: 4px 0;
-        font-size: 13px;
-        width: auto;
-        color: var(--navbar-txt); */
-    }
 }
