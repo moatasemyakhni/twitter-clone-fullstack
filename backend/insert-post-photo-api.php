@@ -4,7 +4,7 @@
     $postID = $data->postID;
     $photo = $data->photo;
 
-    $stmt = $mysqli->prepare("INSERT INTO post_photos(post_id, photo) VALUES(?, ?);");
+    $stmt = $mysqli->prepare("INSERT INTO post_photos VALUES(?, ?);");
     $stmt->bind_param("ds", $postID, $photo);
     if($stmt->execute()) {
         echo json_encode(["success" => true]);
