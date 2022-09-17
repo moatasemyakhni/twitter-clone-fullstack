@@ -187,7 +187,7 @@ margin-left: 0.5rem;
 .tweetimg-label svg{
   width:30px;
 }
-.image-input{
+.home-image-input{
   width: 30%;
   align-self: center;
   margin-bottom: 2rem;
@@ -332,6 +332,34 @@ cursor:pointer;
   cursor: pointer;
 }
 /* logout container styling end  */
+
+/* Tweet Popup Styling Start */
+.tweetpopup{
+ background-color: rgba(0,0,0,0.5);
+   height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top:0;
+}
+.tweet-popup-container{
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  width:50%;
+}
+.tweet-popup-container svg{
+  width: 20px;
+  cursor:pointer;
+}
+.popupimage-input{
+  width: 30%;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+/* Tweet Popup Styling End */
 
 
 /* Media queries */
