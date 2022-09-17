@@ -113,7 +113,7 @@ const validators = () => {
 
 signupBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    if(validators() && emptyFieldValidate() && passwordMatchValidate()) {
+    if(emptyFieldValidate() && validators() && passwordMatchValidate()) {
         // ok
         // alert(email.value)
         console.log("everything is good")
@@ -125,30 +125,50 @@ signupBtn.addEventListener('click', (e) => {
             "username": username.value,
             "email": null,
             "phone": phone.value,
+            "dob": dob.value,
             "password": password.value,
             "profilePhoto": "default.png"
         }
        }
 
-       else if(is_phone_null()) {
+        if(is_phone_null()) {
         data = {
             "name": name.value,
             "username": username.value,
             "email": email.value,
             "phone": null,
+            "dob": dob.value,
             "password": password.value,
             "profilePhoto": "default.png"
         }
        }
        const usrnameExistUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/username-exist-api.php"
-        const x =  dbUsername(usrnameExistUrl, {"username": username.value})
+        const usrnameExist =  dbValuesUniqueness(usrnameExistUrl, {"username": username.value})
         .then((d) => {
             console.log("ddddd==", d)
             if(d.usernameExist) {
                 setErrorMessage(`username is taken`)
                 return
             }
-            signup()
+            const emailExistUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/email-exist-api.php"
+            const emailExist = dbValuesUniqueness(emailExistUrl, {"email": email.value})
+            .then(d => {
+                if(d.emailExist) {
+                    setErrorMessage(`email is taken`)
+                    return
+                }
+                
+                const phoneExistUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/phone-exist-api.php"
+                const phoneExist = dbValuesUniqueness(phoneExistUrl, {"phone": phone.value})
+                .then(d => {
+                    if(d.phoneExist) {
+                        setErrorMessage(`phone is taken`)
+                        return
+                    }
+                    
+                signup(url, data)
+                })
+            })
         })
        
         // All validations are passed
@@ -174,6 +194,17 @@ const signup = async (url, data) => {
     return response.json()
 }
 
+const dbValuesUniqueness = async (url, data) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            "content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    return response.json()
+}
+
 const dbUsername = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -183,12 +214,29 @@ const dbUsername = async (url, data) => {
         body: JSON.stringify(data)
     })
     return response.json()
-    // const usr = await response.json()
-    // console.log("usr", usr.usernameExist)
-    // return usr
 }
 
+const dbEmail = async (url, data) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-Type': "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    return response.json()
+}
 
+const dbPhone = async (url, data) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-Type': "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    return response.json()
+}
 
 
 const toPhoneLink = document.getElementById('to-phone')
@@ -228,19 +276,19 @@ callSignupFormBtn.addEventListener('click', () => {
 
 const is_email_null = () => {
     if(!email.value) {
-        alert("empty email")
+        // alert("empty email")
         return true
     }
-    alert("email is good")
-    return true
+    // alert("email is good")
+    return false
 }
 
 const is_phone_null = () => {
     if(!phone.value) {
-        alert("empty phone")
+        // alert("empty phone")
         return true
     }
-    alert("not empty phone")
-    return true
+    // alert("not empty phone")
+    return false
     
 }
