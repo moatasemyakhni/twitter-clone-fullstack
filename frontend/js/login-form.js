@@ -1,73 +1,72 @@
-const container = document.getElementById('login-container')
+const loginContainer = document.getElementById('login-container')
 const input = document.getElementById('login-input')
-const pwd = document.getElementById('password')
-const loginBtn = document.getElementById('signup-btn')
-const errSection = document.querySelector('.error-section')
-const errTxt = document.getElementById('login-error-txt')
+const loginPwd = document.getElementById('login-password')
+const loginBtn = document.getElementById('login-btn')
+const loginErrSection = document.querySelector('.login-error-section')
+const loginErrTxt = document.getElementById('login-error-txt')
+const loginInputs = document.querySelectorAll('.login-input-box')
+const callLoginFormBtn = document.getElementById('login-page-btn')
 
 
-
-const setErrorMessage = (msg) => {
-    errSection.classList.remove('view-none')
-    errTxt.textContent = msg
-}
-
-const nameValidate = () => {
-    const limit = 50
-    const exp = /^(\w|\s){5,50}$/
-    const nameVal = name.value
-    if(!nameVal.match(exp)) {
-        setErrorMessage(`${name.id} should contain english characters, numbers and more than 5 chars and less than ${limit} chars`)
-        return false
+loginBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    if(!loginEmptyFieldValidate()) {
+        setLoginErrorMessage(`All fields are required`)
+        return
     }
-    errSection.classList.add('view-none')
-    console.log("name is true")
-    return true
-}
-name.addEventListener('input', () => {
-    nameValidate()
+    url = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/login-api.php"
+    data = {
+        "input": input.value,
+        "password": loginPwd.value
+    }
+
+    const canLogin = dbLogin(url, data)
+        .then((d) => {
+            console.log(d)
+            if(!d.verified) {
+                setLoginErrorMessage(`wrong input or password`)
+                return
+            }
+            localStorage.setItem('userID', )
+            localStorage.setItem('username', )
+            location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed-page.html")
+        })
+
 })
 
-const emailValidate = () => {
-    const exp = /^(\w([\.-]?\w)*)+@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    const emailVal = email.value
-    if(!emailVal.match(exp)) {
-        setErrorMessage(`${email.id}: example@gmail.com. ${email.value} is not a valid email`)
-        return false
-    }
-    errSection.classList.add('view-none')
-    console.log('email is true')
-    return true
-}
-email.addEventListener('focusout', () => {
-    emailValidate()
-})
-
-const emptyFieldValidate = () => {
-    if(!name.value || !username.value || (!phone.value && !email.value) || !pwd.value || !pwdRepeat.value || !dob.value) {
-        setErrorMessage(`All fields are required`)
-        return false
-    }
-    return true
-}
-
-//during inputs
-const validators = () => {
-    if(nameValidate() && usernameValidate() && (phoneValidate() || emailValidate())) {
-        return true
-    }
-    return false
-}
-
-
-const closeBtn = document.getElementById('login-x-close')
-closeBtn.addEventListener('click', () => {
-    inputs.forEach((input) => {
-        input.value = null
+const dbLogin = async (url, data) => {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     })
-    container.classList.add('view-none')
+
+    return response.json()
+}
+
+const loginCloseBtn = document.getElementById('login-x-close')
+loginCloseBtn.addEventListener('click', () => {
+    loginInputs.forEach((inp) => {
+        inp.value = null
+    })
+    loginContainer.classList.add('view-none')
 })
 
-callSignupFormBtn.addEventListener('click', () => {
-    container.classList.remove('view-none')
+callLoginFormBtn.addEventListener('click', () => {
+    loginContainer.classList.remove('view-none')
 })
+
+const setLoginErrorMessage = (msg) => {
+    loginErrSection.classList.remove('view-none')
+    loginErrTxt.textContent = msg
+}
+
+const loginEmptyFieldValidate = () => {
+    if(!input.value || !loginPwd.value) {
+        
+        return false
+    }
+    return true
+}

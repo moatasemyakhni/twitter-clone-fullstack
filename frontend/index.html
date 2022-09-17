@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <script src="js/signup-form.js" defer></script>
+    <script src="js/login-form.js" defer></script>
 </head>
 <body>
     <main class="index-container">
@@ -90,16 +91,16 @@
         </form>
     </div>
      <!-- Signing page Start -->
-     <div class = "form-container" id="login-container">
+     <div class = "form-container view-none" id="login-container">
         <form action="index.html" method="post" class="form" id = "login-form">
             <div class="x-icon" id="login-x-close">x</div>
             <div class="login-logo-wrapper"><img src="assets/images/logos/blue-twitter-logo.png" alt="Twitter Logo"></div>
             <h2 class = "login-mini-title">Sign in to Twitter</h2>
-            <input class = "input-box" type="text" placeholder="Phone, Email or Username..." id="login-input">
-            <input class = "input-box" type="password" placeholder="Password" id="login-password">
+            <input class = "input-box login-input-box" type="text" placeholder="Phone, Email or Username..." id="login-input">
+            <input class = "input-box login-input-box" type="password" placeholder="Password" id="login-password">
             <button class = "btn btn-submit-done" type="submit" id = "login-btn">Log in</button>
 
-            <section class="error-section view-none">
+            <section class="error-section login-error-section view-none">
                 <p id="login-error-txt"></p>
             </section>
         </form>
