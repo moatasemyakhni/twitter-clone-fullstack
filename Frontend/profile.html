@@ -104,7 +104,8 @@
      <!-- Feed page Start  -->
      <div class="feed  flex">
 <!-- Header Section Start -->
-        <section class = "feed-heading  profile-feed flex column">
+
+        <section class = "feed-heading  profile-feed flex column" id ="profile-feed">
           <p class = "profile-name" id = "profile-name">Ramzi Ashkar</p>
           <div class="cover-photo"></div>
           <div class="profile-picture">
@@ -242,7 +243,8 @@
                3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
          </a></li>
          <li class = "mobile-nav-item">
-         <img src="./assets/pp.png" width= "30px" alt=""></li>
+           <a href="profile.html">
+         <img src="./assets/pp.png" width= "30px" alt=""></a></li>
        </ul>
      </nav>
 
@@ -362,7 +364,40 @@
      <!-- Search section for mobile start -->
 
 
-     <script type="text/javascript" src="feed.js"></script>
+     <!-- Tweet section for mobile -->
+     <section class = "feed-heading flex column">
+     <div class="twitter-logo alwayshidden">
+       <img src="./assets/Twitter-logo.svg.png"  width = "70px" alt="">
+     </div>
+     <div class="tweet-now flex column alwayshidden">
+     <div class="add-tweet flex">
+       <div class="user-img">
+         <img src="./assets/pp.png" width= "50px" alt="">
+       </div>
+       <textarea name="add-tweet" rows="2" cols="60" id = "home-add-tweet" placeholder="What's Happening?"></textarea>
+     </div>
+     <label for="capture" class="tweetimg-label"><svg viewBox="0 0 24 24" aria-hidden="true" class=""><g>
+          <path d="M19.75 2H4.25C3.01 2 2 3.01 2 4.25v15.5C2 20.99 3.01 22 4.25
+          22h15.5c1.24 0 2.25-1.01 2.25-2.25V4.25C22 3.01 20.99 2 19.75 2zM4.25
+          3.5h15.5c.413 0 .75.337.75.75v9.676l-3.858-3.858c-.14-.14-.33-.22-.53-.22h-.003c-.2 0-.393.08-.532.224l-4.317
+          4.384-1.813-1.806c-.14-.14-.33-.22-.53-.22-.193-.03-.395.08-.535.227L3.5 17.642V4.25c0-.413.337-.75.75-.75zm-.744
+          16.28l5.418-5.534 6.282 6.254H4.25c-.402 0-.727-.322-.744-.72zm16.244.72h-2.42l-5.007-4.987 3.792-3.85 4.385 4.384v3.703c0 .413-.337.75-.75.75z">
+        </path><circle cx="8.868" cy="8.309" r="1.542"></circle></g></svg></label>
+     <input type="file" name="image" accept="image/*" capture="environment" id="capture" multiple hidden>
+   <div class="home-image-input">
+     <img src="" alt="" width="100%" id ="chosenimage" class="alwayshidden">
+   </div>
+   <div class="tweetnow-btns flex">
+     <div class="cancel">
+       <button type="button" name="cancel" id = "cancel" class="cancelimg alwayshidden">Cancel</button>
+     </div>
+     <button type="button" name="what's happening" class ="btn-tweet-now" id = "home-post-tweet">Tweet</button>
+   </div>
+
+   </div>
+   </section>
+
+     <script type="text/javascript" src="profile.js"></script>
    </body>
 
 
