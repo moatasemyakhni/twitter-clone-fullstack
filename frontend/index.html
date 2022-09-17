@@ -6,7 +6,7 @@
     <title>Twitter. It's what's happening / Twitter</title>
     <link rel="stylesheet" href="styles/styles.css">
 
-    <script src="js/signup-form.js"></script>
+    <script src="js/signup-form.js" defer></script>
 </head>
 <body>
     <main class="index-container">
@@ -67,18 +67,18 @@
         <a href="#">&copy; 2022 Twitter, Inc.</a>
     </navbar>
 
-    <div class="form-container" id="signup-container">
+    <div class="form-container view-none" id="signup-container">
         <form action="index.html" method="post" class="signup-form" id="signup-form">
-            <div class="x-icon">x</div>
+            <div class="x-icon" id="x-close">x</div>
             <input class="input-box" type="text" placeholder="Name..." id="name">
             <input class="input-box" type="text" placeholder="Username..." id="username">
             <div class="email-phone-containers">
                 <input class="input-box" type="tel" placeholder="Phone Number..." id="phone">
-                <a href="#">Use email instead?</a>
+                <a href="#" id="to-email">Use email instead?</a>
             </div>
-            <div class="email-phone-containers">
+            <div class="email-phone-containers view-none">
                 <input type="text" class="input-box" placeholder="Email" id="email">
-                <a href="#">Use Phone instead?</a>
+                <a href="#" id="to-phone">Use Phone instead?</a>
             </div>
             <input class="input-box" type="password" placeholder="Password..." id="password">
             <input class="input-box" type="password" placeholder="Verify Password..." id="password-repeat">
