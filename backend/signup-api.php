@@ -6,11 +6,12 @@
     $email = $data->email;
     $phone = $data->phone;
     $password = $data->password;
+    $dob = $data->dob;
     $profilePhoto = $data->profilePhoto;
 
-    $stmt1 = $mysqli->prepare("INSERT INTO users(name, username, password, profile_photo) VALUES(?, ?, ?, ?);");
+    $stmt1 = $mysqli->prepare("INSERT INTO users(name, username, password, date_of_birth, profile_photo) VALUES(?, ?, ?, ?, ?);");
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-    $stmt1->bind_param("ssss", $name, $username, $hashedPwd, $profilePhoto);
+    $stmt1->bind_param("sssss", $name, $username, $hashedPwd, $dob, $profilePhoto);
 
     $response = [];
     if($stmt1->execute()) {
