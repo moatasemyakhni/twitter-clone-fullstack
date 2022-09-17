@@ -140,8 +140,23 @@ signupBtn.addEventListener('click', (e) => {
             "profilePhoto": "default.png"
         }
        }
+       const usrnameExistUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/username-exist-api.php"
+        const x =  dbUsername(usrnameExistUrl, {"username": username.value})
+        .then((d) => {
+            console.log("ddddd==", d)
+            if(d.usernameExist) {
+                setErrorMessage(`username is taken`)
+                return
+            }
+            signup()
+        })
+       
         // All validations are passed
-        signup(url, data)
+        // dbUsername(url, {"username": username.value})
+        //     .then((d) => {
+        //         console.log("d==", d)
+        //     })
+        // signup(url, data)
     }else {
         console.log("everything is not good!")
     }
@@ -157,6 +172,20 @@ const signup = async (url, data) => {
     })
 
     return response.json()
+}
+
+const dbUsername = async (url, data) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            "content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    return response.json()
+    // const usr = await response.json()
+    // console.log("usr", usr.usernameExist)
+    // return usr
 }
 
 
