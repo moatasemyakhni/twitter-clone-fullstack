@@ -46,4 +46,5 @@
         $response[] = ["insert in users phone success" => false];
     }
 
-    echo json_encode($response);
+    // echo json_encode($response); // for debugging purposes
+    echo json_encode(["userID" => $userID]);
