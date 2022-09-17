@@ -273,13 +273,14 @@ img {
     gap: 10px;
 }
 
-.email-phone-containers > a {
+.email-phone-containers > p {
     font-size: 14px;
     align-self: flex-end;
     color: var(--twitter-color);
+    cursor: pointer;
 }
 
-.email-phone-containers > a:hover {
+.email-phone-containers > p:hover {
     text-decoration: underline;
 }
 /* end of index page */

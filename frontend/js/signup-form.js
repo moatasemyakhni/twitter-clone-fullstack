@@ -22,17 +22,16 @@ callSignupFormBtn.addEventListener('click', () => {
 
 const toPhoneLink = document.getElementById('to-phone')
 const toEmailLink = document.getElementById('to-email')
-const emailOrPhoneContainer = document.querySelectorAll('email-phone-container')
+const emailOrPhoneContainer = document.querySelectorAll('.email-phone-containers')
 
-// toPhoneLink.addEventListener('click', () => {
-//     emailOrPhoneContainer.forEach((container) => {
-//         console.log(container)
-//         container.classList.toggle('view-none')
-//     })
-// })
+toPhoneLink.addEventListener('click', () => {
+    emailOrPhoneContainer.forEach((cont) => {
+        cont.classList.toggle('view-none')
+    })
+})
 
 toEmailLink.addEventListener('click', () => {
-    emailOrPhoneContainer.forEach((container) => {
-        container.classList.toggle('view-none')
+    emailOrPhoneContainer.forEach((cont) => {
+        cont.classList.toggle('view-none')
     })
 })
