@@ -22,10 +22,10 @@ const setErrorMessage = (msg) => {
 
 const nameValidate = () => {
     const limit = 50
-    const exp = /^\w{0,50}$/
+    const exp = /^(\w|\s){5,50}$/
     const nameVal = name.value
     if(!nameVal.match(exp)) {
-        setErrorMessage(`${name.id} should contain english characters, numbers and less than ${limit} chars`)
+        setErrorMessage(`${name.id} should contain english characters, numbers and more than 5 chars and less than ${limit} chars`)
         return false
     }
     errSection.classList.add('view-none')
@@ -39,10 +39,10 @@ name.addEventListener('input', () => {
 
 const usernameValidate = () => {
     const limit = 50
-    const exp = /^@\w{0,50}$/
+    const exp = /^@\w{5,50}$/
     const usernameVal = username.value
     if(!usernameVal.match(exp)) {
-        setErrorMessage(`${username.id} should start with '@', then english characters, numbers and less than ${limit} chars`)
+        setErrorMessage(`${username.id} @example_123. It should be more than 5 and less than ${limit} chars`)
         return false
     }
     errSection.classList.add('view-none')
@@ -75,7 +75,7 @@ const emailValidate = () => {
     const exp = /^(\w([\.-]?\w)*)+@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     const emailVal = email.value
     if(!emailVal.match(exp)) {
-        setErrorMessage(`Try format example@gmail.com. ${email.value} is not a valid email`)
+        setErrorMessage(`${email.id}: example@gmail.com. ${email.value} is not a valid email`)
         return false
     }
     errSection.classList.add('view-none')
