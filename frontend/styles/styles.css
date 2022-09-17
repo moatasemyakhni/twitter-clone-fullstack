@@ -212,6 +212,11 @@ img {
 
 .form-container {
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 .form-container .signup-form {
