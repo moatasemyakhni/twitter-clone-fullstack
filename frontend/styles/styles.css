@@ -244,7 +244,7 @@ img {
     align-items: center;
 }
 
-.form-container .signup-form {
+.form-container .form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -303,6 +303,18 @@ img {
 
 .error-section p {
     text-align: center;
+}
+
+/* login form */
+
+.login-logo-wrapper {
+    width: 32px;
+    height: 32px;
+
+}
+
+.login-x-icon {
+    top: 30px !important;
 }
 /* end of index page */
 

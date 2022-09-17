@@ -68,7 +68,7 @@
     </navbar>
 
     <div class="form-container view-none" id="signup-container">
-        <form action="index.html" method="post" class="signup-form" id="signup-form">
+        <form action="index.html" method="post" class="form" id="signup-form">
             <div class="x-icon" id="x-close">x</div>
             <input class="input-box" type="text" placeholder="Name..." id="name">
             <input class="input-box" type="text" placeholder="Username..." id="username">
@@ -89,5 +89,22 @@
             </section>
         </form>
     </div>
+     <!-- Signing page Start -->
+     <div class = "form-container" id="login-container">
+        <form action="index.html" method="post" class="form" id = "login-form">
+            <div class="x-icon login-x-icon" id="x-close-login">x</div>
+            <div class="login-logo-wrapper"><img src="assets/images/logos/blue-twitter-logo.png" alt="Twitter Logo"></div>
+            <h2 class = "index-mini-title">Sign in to Twitter</h2>
+            <input class = "input-box" type="text" placeholder="Username" id="login-username">
+            <input class = "input-box" type="password" placeholder="Password" id="login-password">
+            <button class = "btn btn-submit-done" type="submit" id = "login-btn">Log in</button>
+
+            <section class="error-section view-none">
+                <p id="login-error-txt"></p>
+            </section>
+        </form>
+
+      </div>
+      <!-- Signin page End -->
 </body>
 </html>
