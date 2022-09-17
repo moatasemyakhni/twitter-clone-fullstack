@@ -32,17 +32,17 @@
     $stmt3 = $mysqli->prepare("INSERT INTO email_users VALUES(?, ?);");
     $stmt3->bind_param("ds", $userID, $email);
     if($stmt3->execute()) {
-        $response[] = ["insert in users email success" => true];
+        $response[] = ["insertEmail" => true];
     }else {
-        $response[] = ["insert in users email success" => false];
+        $response[] = ["insertEmail" => false];
     }
 
     $stmt4 = $mysqli->prepare("INSERT INTO phone_users VALUES(?, ?);");
     $stmt4->bind_param("ds", $userID, $phone);
     if($stmt4->execute()) {
-        $response[] = ["insert in users phone success" => true];
+        $response[] = ["insertPhone" => true];
     }else {
-        $response[] = ["insert in users phone success" => false];
+        $response[] = ["insertPhone" => false];
     }
 
     echo json_encode($response);

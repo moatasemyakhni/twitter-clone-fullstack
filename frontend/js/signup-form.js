@@ -66,7 +66,7 @@ const phoneValidate = () => {
     console.log('phone is true')
     return true
 }
-phone.addEventListener('input', () => {
+phone.addEventListener('focusout', () => {
     phoneValidate()
 })
 
@@ -82,7 +82,7 @@ const emailValidate = () => {
     console.log('email is true')
     return true
 }
-email.addEventListener('input', () => {
+email.addEventListener('focusout', () => {
     emailValidate()
 })
 
@@ -115,11 +115,49 @@ signupBtn.addEventListener('click', (e) => {
     e.preventDefault()
     if(validators() && emptyFieldValidate() && passwordMatchValidate()) {
         // ok
+        // alert(email.value)
         console.log("everything is good")
+        const url = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/signup-api.php"
+        let data
+       if(is_email_null()) {
+        data = {
+            "name": name.value,
+            "username": username.value,
+            "email": null,
+            "phone": phone.value,
+            "password": password.value,
+            "profilePhoto": "default.png"
+        }
+       }
+
+       if(is_phone_null()) {
+        data = {
+            "name": name.value,
+            "username": username.value,
+            "email": email.value,
+            "phone": null,
+            "password": password.value,
+            "profilePhoto": "default.png"
+        }
+       }
+        // All validations are passed
+        signup(url, data)
     }else {
         console.log("everything is not good!")
     }
 })
+
+const signup = async (url, data) => {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+
+    return response.json()
+}
 
 
 
@@ -158,3 +196,22 @@ closeBtn.addEventListener('click', () => {
 callSignupFormBtn.addEventListener('click', () => {
     container.classList.remove('view-none')
 })
+
+const is_email_null = () => {
+    if(!email.value) {
+        alert("empty email")
+        return true
+    }
+    alert("email is good")
+    return true
+}
+
+const is_phone_null = () => {
+    if(!phone.value) {
+        alert("empty phone")
+        return true
+    }
+    alert("not empty phone")
+    return true
+    
+}
