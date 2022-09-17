@@ -19,81 +19,106 @@ const setErrorMessage = (msg) => {
     errTxt.textContent = msg
 }
 
-const validators = () => {
-    inputs.forEach((input) => {
-        input.addEventListener('input', () => {
-            //empty fields handler
-            if(!input.value) {
-                setErrorMessage(`${input.id} is required`)
-                return
-            }else {
-                errSection.classList.add('view-none')
-            }
-            // name handler
-            if(input.id === name.id) {
-                const limit = 50
-                const exp = /^\w{0,50}$/
-                const nameVal = input.value
-                if(!nameVal.match(exp)) {
-                    setErrorMessage(`${input.id} should contain english characters, numbers and less than ${limit} chars`)
-                    return
-                }
-                errSection.classList.add('view-none')
-                console.log("name is true")
-            }
-            //username handler
-            if(input.id === username.id) {
-                const limit = 50
-                const exp = /^@\w{0,50}$/
-                const usernameVal = input.value
-                if(!usernameVal.match(exp)) {
-                    setErrorMessage(`${input.id} should start with '@', then english characters, numbers and less than ${limit} chars`)
-                    return
-                }
-                errSection.classList.add('view-none')
-                console.log("username is true")
-            }
-            //Lebanese phone handler
-            if(input.id === phone.id) {
-                const exp1 = /^[+]9613\d{6}$/
-                const exp2 = /^[+]961(71|76|70|78)\d{6}$/
-                const phoneVal = input.value
-                if(!phoneVal.match(exp1) && !phoneVal.match(exp2)) {
-                    setErrorMessage(`${input.value} is not a Lebanese number`)
-                    return
-                }
-                errSection.classList.add('view-none')
-                console.log('phone is true')
-            }
-            //email handler
-            if(input.id === email.id) {
-                const exp = /^(\w([\.-]?\w)*)+@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-                const emailVal = input.value
-                if(!emailVal.match(exp)) {
-                    setErrorMessage(`Try format example@gmail.com. ${input.value} is not a valid email`)
-                    return
-                }
-                errSection.classList.add('view-none')
-                console.log('email is true')
-            }
-        })
-    })
 
+const nameValidate = () => {
+    const limit = 50
+    const exp = /^\w{0,50}$/
+    const nameVal = name.value
+    if(!nameVal.match(exp)) {
+        setErrorMessage(`${name.id} should contain english characters, numbers and less than ${limit} chars`)
+        return false
+    }
+    errSection.classList.add('view-none')
+    console.log("name is true")
+    return true
+}
+name.addEventListener('input', () => {
+    nameValidate()
+})
+
+
+const usernameValidate = () => {
+    const limit = 50
+    const exp = /^@\w{0,50}$/
+    const usernameVal = username.value
+    if(!usernameVal.match(exp)) {
+        setErrorMessage(`${username.id} should start with '@', then english characters, numbers and less than ${limit} chars`)
+        return false
+    }
+    errSection.classList.add('view-none')
+    console.log("username is true")
+    return true
+}
+username.addEventListener('input', () => {
+    usernameValidate()
+})
+
+
+const phoneValidate = () => {
+    const exp1 = /^[+]9613\d{6}$/
+    const exp2 = /^[+]961(71|76|70|78)\d{6}$/
+    const phoneVal = phone.value
+    if(!phoneVal.match(exp1) && !phoneVal.match(exp2)) {
+        setErrorMessage(`${phone.value} is not a Lebanese number`)
+        return false
+    }
+    errSection.classList.add('view-none')
+    console.log('phone is true')
+    return true
+}
+phone.addEventListener('input', () => {
+    phoneValidate()
+})
+
+
+const emailValidate = () => {
+    const exp = /^(\w([\.-]?\w)*)+@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    const emailVal = email.value
+    if(!emailVal.match(exp)) {
+        setErrorMessage(`Try format example@gmail.com. ${email.value} is not a valid email`)
+        return false
+    }
+    errSection.classList.add('view-none')
+    console.log('email is true')
+    return true
+}
+email.addEventListener('input', () => {
+    emailValidate()
+})
+
+
+const emptyFieldValidate = () => {
     if(!name.value || !username.value || (!phone.value && !email.value) || !pwd.value || !pwdRepeat.value || !dob.value) {
         setErrorMessage(`All fields are required`)
-        return
+        return false
     }
-    if(pwd.value !== pwdRepeat.value) {
-        setErrorMessage(`Passwords do not match`)
-        return
-    }
+    return true
 }
 
-validators()
+const passwordMatchValidate = () => {
+    if(pwd.value !== pwdRepeat.value) {
+        setErrorMessage(`Passwords do not match`)
+        return false
+    }
+    return true
+}
+
+//during inputs
+const validators = () => {
+    if(nameValidate() && usernameValidate() && (phoneValidate() || emailValidate())) {
+        return true
+    }
+    return false
+}
 
 signupBtn.addEventListener('click', (e) => {
-
     e.preventDefault()
+    if(validators() && emptyFieldValidate() && passwordMatchValidate()) {
+        // ok
+        console.log("everything is good")
+    }else {
+        console.log("everything is not good!")
+    }
 })
 
 
@@ -107,16 +132,26 @@ toPhoneLink.addEventListener('click', () => {
     emailOrPhoneContainer.forEach((cont) => {
         cont.classList.toggle('view-none')
     })
+    email.value = null
+    if(errTxt.textContent.includes('email'))
+        errSection.classList.add('view-none')
 })
 
 toEmailLink.addEventListener('click', () => {
     emailOrPhoneContainer.forEach((cont) => {
         cont.classList.toggle('view-none')
     })
+    phone.value = null
+    console.log(errTxt.textContent.includes('is not a Lebanese number'))
+    if(errTxt.textContent.includes('is not a Lebanese number'))
+        errSection.classList.add('view-none')
 })
 
 const closeBtn = document.getElementById('x-close')
 closeBtn.addEventListener('click', () => {
+    inputs.forEach((input) => {
+        input.value = null
+    })
     container.classList.add('view-none')
 })
 
