@@ -313,9 +313,13 @@ img {
 
 }
 
-.login-x-icon {
-    top: 30px !important;
+.login-mini-title {
+    font-family: "index-page-bold", Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    line-height: 36px;
 }
+
+
 /* end of index page */
 
 @media screen and (max-width: 1000px) {
@@ -364,5 +368,10 @@ img {
     /* start of navbar */
     .index-navbar-container {
         margin-top: 10%;
+    }
+
+    /* start of login */
+    .login-mini-title {
+        font-size: 22px;
     }
 }
