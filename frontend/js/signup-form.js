@@ -11,4 +11,5 @@ const callSignupFormBtn = document.getElementById('signup-page-btn')
 
 callSignupFormBtn.addEventListener('click', () => {
     const body = document.body
+    
 })
