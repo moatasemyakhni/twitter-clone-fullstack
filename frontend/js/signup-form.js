@@ -130,7 +130,7 @@ signupBtn.addEventListener('click', (e) => {
         }
        }
 
-       if(is_phone_null()) {
+       else if(is_phone_null()) {
         data = {
             "name": name.value,
             "username": username.value,
