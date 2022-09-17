@@ -4,7 +4,7 @@
     $userID = $data->userID;
     $friendID = $data->friendID;
 
-    $stmt = $mysqli->prepare("DELETE FROM user_blocks WHERE user_id=? AND friend_id=?");
+    $stmt = $mysqli->prepare("DELETE FROM user_blocks WHERE user_id=? AND blocked_id=?");
     $stmt->bind_param("dd", $userID, $friendID);
 
     if($stmt->execute()) {
