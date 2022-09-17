@@ -5,7 +5,7 @@
     $password = $data->password;
 
     // $stmt = $mysqli->prepare("SELECT u.password FROM users u, email_users e, phone_users p WHERE u.user_id=e.user_id AND u.user_id=p.user_id AND e.user_id=p.user_id AND (u.username=? OR e.email=? OR p.phone=?);");
-    $stmt = $mysqli->prepare("SELECT u.password FROM users u, email_users e WHERE u.user_id=e.user_id AND (u.username=? OR e.email=?);");
+    $stmt = $mysqli->prepare("SELECT u.user_id, u.username, u.password FROM users u, email_users e WHERE u.user_id=e.user_id AND (u.username=? OR e.email=?);");
     $stmt->bind_param("ss", $input, $input);
     if(!$stmt->execute()) {
         die("ERROR in login stmt");
@@ -18,7 +18,7 @@
     }
     if(count($response) == 0) {
         //$response = ["verified" => false, "found" => false];
-        $stmt2 = $mysqli->prepare("SELECT u.password FROM users u, phone_users p WHERE u.user_id=p.user_id AND (u.username=? OR p.phone=?);");
+        $stmt2 = $mysqli->prepare("SELECT u.user_id, u.username, u.password FROM users u, phone_users p WHERE u.user_id=p.user_id AND (u.username=? OR p.phone=?);");
         $stmt2->bind_param("ss", $input, $input);
         if(!$stmt2->execute()) {
             die("ERROR in login stmt2");
@@ -39,7 +39,11 @@
     $checkedPassword = password_verify($password, $hashedPassword);
 
     if($checkedPassword) {
-        $response = ["verified" => true];
+        $response = [
+            "verified" => true,
+            "userID" => $response[0]['user_id'],
+            "username" => $response[0]['username']
+        ];
     }else {
         $response = ["verified" => false, "correctPwd" => false];
     }
