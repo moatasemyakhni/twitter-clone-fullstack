@@ -76,6 +76,10 @@ img {
     background-color: #1d9bf01a;
 }
 
+.view-none {
+    display: none;
+}
+
 /* end of utilities */
 :root {
     --index-color: #0f1419;
