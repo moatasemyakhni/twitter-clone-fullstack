@@ -83,18 +83,28 @@
                  </div>
                </div>
                <!-- user profile section end -->
-
-               <!-- logout container start-->
-               <!-- logout container End-->
-
-
-
             </nav>
             <!-- Left Navbar Section End -->
 
 
 
+            <!-- logout container start-->
+            <div class="logout flex column alwayshidden">
+              <div class="user-profile flex">
+                <div class="ppicture" id = "ppicture">
+                  <img src="./assets/pp.png" alt="" width = "50px">
+                </div>
+                <div class="username-sec flex column">
+                  <p class="full-name">Ramzi El Ashkar</p>
+                  <p class = "user-name">@AshkarRamzi</p>
+                </div>
+              </div>
+              <div class="profile-logout">
+                Log out @AshkarRamzi
+              </div>
+            </div>
 
+            <!-- logout container End-->
      <!-- Feed page Start  -->
      <div class="feed flex">
 <!-- Header Section Start -->
@@ -121,11 +131,11 @@
              </path><circle cx="8.868" cy="8.309" r="1.542"></circle></g></svg></label>
           <input type="file" name="image" accept="image/*" capture="environment" id="capture" multiple hidden>
         <div class="image-input">
-          <img src="" alt="" width="100%" id ="chosenimage" class="hidden-img">
+          <img src="" alt="" width="100%" id ="chosenimage" class="alwayshidden">
         </div>
         <div class="tweetnow-btns flex">
           <div class="cancel">
-            <button type="button" name="cancel" id = "cancel" class="cancelimg hidden-btn">Cancel</button>
+            <button type="button" name="cancel" id = "cancel" class="cancelimg alwayshidden">Cancel</button>
           </div>
           <button type="button" name="what's happening" class ="btn-tweet-now">Tweet</button>
         </div>
