@@ -266,6 +266,22 @@ img {
     border: 1px solid #ccc;
 
 }
+
+.email-phone-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.email-phone-containers > a {
+    font-size: 14px;
+    align-self: flex-end;
+    color: var(--twitter-color);
+}
+
+.email-phone-containers > a:hover {
+    text-decoration: underline;
+}
 /* end of index page */
 
 @media screen and (max-width: 1000px) {
