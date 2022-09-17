@@ -16,6 +16,9 @@ const mobiletweet = document.getElementById('mobile-tweet');
 const tweetfeed = document.querySelector('.tweet-now');
 const searchinput = document.getElementById('search');
 const searchcontainer = document.querySelector('.search-suggest');
+const leftnavsearchicon = document.getElementById('search-icon');
+const mobilesearchicon = document.getElementById('mobile-searchicon');
+const mobilesearchpage = document.querySelector('.mobile-search');
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -64,6 +67,11 @@ const mobileTweet = () => {
 // function to display search suggestions container
 const displaySearch = () => {
 searchcontainer.classList.toggle('alwayshidden');
+};
+
+// function to display search page on small screens
+const displaySearchPage = () => {
+mobilesearchpage.classList.remove('alwayshidden');
 };
 
 
@@ -128,4 +136,12 @@ mobiletweet.addEventListener("click", () => {
 
 searchinput.addEventListener("click", () => {
   displaySearch();
+});
+
+leftnavsearchicon.addEventListener("click", () => {
+  displaySearchPage();
+});
+
+mobilesearchicon.addEventListener("click", () => {
+  displaySearchPage();
 });
