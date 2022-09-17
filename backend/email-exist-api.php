@@ -1,12 +1,12 @@
 <?php
     include('connection.php');
     $data = json_decode(file_get_contents("php://input"));
-    $username = $data->username;
+    $email = $data->email;
 
-    $stmt = $mysqli->prepare("SELECT username from users WHERE username=?");
-    $stmt->bind_param("s", $username);
+    $stmt = $mysqli->prepare("SELECT email from email_users WHERE email=?");
+    $stmt->bind_param("s", $email);
     if(!$stmt->execute()) {
-        die("username Execution Failed");
+        die("email Execution Failed");
     }
     $response = [];
     $results = $stmt->get_result();
@@ -14,8 +14,8 @@
         $response[] = $result;
     }
     if(count($response) <= 0) {
-        echo json_encode(['usernameExist' => false]);
+        echo json_encode(['emailExist' => false]);
     }else {
-        echo json_encode(["usernameExist" => true]);
+        echo json_encode(["emailExist" => true]);
     }
         
