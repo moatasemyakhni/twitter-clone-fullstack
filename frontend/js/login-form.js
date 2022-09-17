@@ -27,8 +27,9 @@ loginBtn.addEventListener('click', (e) => {
                 setLoginErrorMessage(`wrong input or password`)
                 return
             }
-            localStorage.setItem('userID', )
-            localStorage.setItem('username', )
+            loginErrSection.classList.add('view-none')
+            localStorage.setItem('userID', d.userID)
+            localStorage.setItem('username', d.username)
             location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed-page.html")
         })
 
