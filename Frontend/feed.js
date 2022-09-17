@@ -14,6 +14,8 @@ const popuptweetcontent = document.getElementById('popup-add-tweet');
 const popupposttweet = document.getElementById('popup-posttweet');
 const mobiletweet = document.getElementById('mobile-tweet');
 const tweetfeed = document.querySelector('.tweet-now');
+const searchinput = document.getElementById('search');
+const searchcontainer = document.querySelector('.search-suggest');
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -49,6 +51,7 @@ const submitTweet = (image, tweetcontent) => {
   console.log(image);
 };
 
+// function to display tweet container on mobiles
 const mobileTweet = () => {
   const feed = document.querySelector('.tweets');
   feed.classList.add("alwayshidden");
@@ -57,6 +60,15 @@ const mobileTweet = () => {
   mobiletweet.style.display = "none";
 
 };
+
+// function to display search suggestions container
+const displaySearch = () => {
+searchcontainer.classList.toggle('alwayshidden');
+};
+
+
+
+
 
 // Event Listeners
 inputimg.addEventListener("change", () => {
@@ -111,4 +123,9 @@ popupposttweet.addEventListener("click", () => {
 
 mobiletweet.addEventListener("click", () => {
   mobileTweet();
+});
+
+
+searchinput.addEventListener("click", () => {
+  displaySearch();
 });
