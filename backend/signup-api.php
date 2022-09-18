@@ -7,7 +7,7 @@
     $phone = $data->phone;
     $password = $data->password;
     $dob = $data->dob;
-    $profilePhoto = $data->profilePhoto;
+    $profilePhoto = "D:\\php\\htdocs\\9-sefactory\\twitter-clone-fullstack\\frontend\\assets\\images\\defaultProfiles\\";
 
     $stmt1 = $mysqli->prepare("INSERT INTO users(name, username, password, date_of_birth, profile_photo) VALUES(?, ?, ?, ?, ?);");
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
