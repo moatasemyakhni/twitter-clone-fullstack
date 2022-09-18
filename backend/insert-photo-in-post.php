@@ -8,7 +8,8 @@
     $data = explode(',', $photo);// to get the ext
     $ext = explode(';', explode('/', $data[0])[1])[0];
     $post = "post" . $postID . "_" . time(); //unique it
-    $path = "D:\\php\\htdocs\\9-sefactory\\twitter-clone-fullstack\\frontend\\assets\\images\\usersPosts\\";
+    // $path = "D:\\php\\htdocs\\9-sefactory\\twitter-clone-fullstack\\frontend\\assets\\images\\usersPosts\\";
+    $path = "../frontend/assets/images/usersPosts/";
     $completeUrl = $path . $post . "." . $ext;
 
     //Actually saving the photo in the previous path

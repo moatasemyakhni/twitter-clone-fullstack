@@ -9,7 +9,7 @@
     $data = explode(',', $profilePhoto);// to get the ext
     $ext = explode(';', explode('/', $data[0])[1])[0];
     $user = $username . "_" . time(); //unique it
-    $path = "D:\\php\\htdocs\\9-sefactory\\twitter-clone-fullstack\\frontend\\assets\\images\\usersProfiles\\";
+    $path = "../frontend/assets/images/usersProfiles/";
     $completeUrl = $path . $user . "." . $ext;
     
     //Actually saving the photo in the previous path
