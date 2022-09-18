@@ -30,6 +30,9 @@ loginBtn.addEventListener('click', (e) => {
             loginErrSection.classList.add('view-none')
             localStorage.setItem('userID', d.userID)
             localStorage.setItem('username', d.username)
+            localStorage.setItem('name', d.name)
+            localStorage.setItem('dob', d.dob)
+            localStorage.setItem('profilePhoto', d.profilePhoto)
             location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed-page.html")
         })
 

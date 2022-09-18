@@ -168,6 +168,9 @@ signupBtn.addEventListener('click', (e) => {
                 .then(d => {
                     localStorage.setItem('userID', d.userID)
                     localStorage.setItem('username', username.value)
+                    localStorage.setItem('name', name.value)
+                    localStorage.setItem('dob', dob.value)
+                    localStorage.setItem('profilePhoto', '../frontend/assets/images/defaultProfiles/default-profile.png')
                     location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed-page.html")
                     
                 })
