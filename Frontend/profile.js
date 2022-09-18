@@ -18,9 +18,12 @@ const mobilesearchicon = document.getElementById('mobile-searchicon');
 const mobilesearchpage = document.querySelector('.mobile-search');
 const home_nav = document.getElementById('home').style.fontWeight = "lighter";
 const profile_nav = document.querySelector('.path').classList.remove("path");
-const editprofilepage = document.querySelector('.overlay');
+const editprofilepage = document.getElementById('editpage');
 const editprofile = document.getElementById('edit-profile');
 const close_editprofile = document.getElementById('exit-edit');
+const change_pp = document.getElementById('change-pp');
+const changepp_page = document.getElementById('mediapage');
+const close_changepage = document.getElementById('exit-change');
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -87,6 +90,17 @@ const closeEditPage = () => {
 
 };
 
+// function to display Change Profile Picture Page
+const displayChangeProfile = (changedimage) => {
+  changepp_page.classList.remove('alwayshidden');
+  changedimage.src =URL.createObjectURL(event.target.files[0]);
+};
+
+// function to Close Change Profile Picture Page
+const closeChangeProfile = () => {
+  changepp_page.classList.add('alwayshidden');
+};
+
 
 
 // Event Listeners
@@ -147,4 +161,13 @@ editprofile.addEventListener("click", () => {
 
 close_editprofile.addEventListener("click", () => {
   closeEditPage();
+});
+
+change_pp.addEventListener("change", () => {
+  const changedimage = document.getElementById('changed-pp');
+  displayChangeProfile(changedimage);
+});
+
+close_changepage.addEventListener("click", () => {
+  closeChangeProfile();
 });
