@@ -126,8 +126,7 @@ signupBtn.addEventListener('click', (e) => {
             "email": null,
             "phone": phone.value,
             "dob": dob.value,
-            "password": password.value,
-            "profilePhoto": "default.png"
+            "password": password.value
         }
        }
 
@@ -138,8 +137,7 @@ signupBtn.addEventListener('click', (e) => {
             "email": email.value,
             "phone": null,
             "dob": dob.value,
-            "password": password.value,
-            "profilePhoto": "default.png"
+            "password": password.value
         }
        }
        const usrnameExistUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/username-exist-api.php"
