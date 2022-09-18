@@ -4,6 +4,7 @@ const tweetbtn = document.getElementById('tweet-btn');
 const tweetcontainer = document.querySelector('.tweetpopup');
 const popupcancelbtn = document.getElementById('popupcancel');
 const popupinputimg = document.getElementById('popupcapture');
+const homeinputimg = document.getElementById('capture');
 const closepopup = document.getElementById('exitpopup');
 const lefttweetbtn = document.getElementById('leftnav-tweet');
 const hometweetcontent = document.getElementById('home-add-tweet');
@@ -24,6 +25,8 @@ const close_editprofile = document.getElementById('exit-edit');
 const change_pp = document.getElementById('change-pp');
 const changepp_page = document.getElementById('mediapage');
 const close_changepage = document.getElementById('exit-change');
+const mobiletweetbtn = document.getElementById('home-post-tweet');
+const homecancel =document.getElementById('cancel');
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -54,9 +57,8 @@ const logoutContainerShow = () => {
 };
 
 // Function to submit tweet contents
-const submitTweet = (image, tweetcontent) => {
-  console.log(tweetcontent.value);
-  console.log(image);
+const submitTweet = () => {
+location.reload();
 };
 
 // function to display tweet container on mobiles
@@ -115,6 +117,16 @@ popupcancelbtn.addEventListener("click", () => {
   removeChosenImg(popupcancelbtn, popupchosenimage);
 });
 
+homeinputimg.addEventListener("change", () => {
+  const chosenimage = document.getElementById('chosenimage');
+  displayChosenImg(homecancel, chosenimage);
+
+});
+homecancel.addEventListener("click", () => {
+  const chosenimage = document.querySelector('#chosenimage');
+  removeChosenImg(homecancel, chosenimage);
+});
+
 userprofile.addEventListener("click", () => {
 logoutContainerShow();
 });
@@ -170,4 +182,11 @@ change_pp.addEventListener("change", () => {
 
 close_changepage.addEventListener("click", () => {
   closeChangeProfile();
+});
+
+popupposttweet.addEventListener('click', () => {
+  submitTweet();
+});
+mobiletweetbtn.addEventListener('click', () => {
+  submitTweet();
 });

@@ -1,8 +1,12 @@
 const hometweetbtn = document.getElementById('home-post-tweet');
 const hometweetcontents = document.getElementById('home-add-tweet');
 const hometweetimg = document.querySelector('#capture');
+const popuptweetimg = document.getElementById('popupcapture');
+const popuptweetcontents = document.getElementById('popup-add-tweet');
+const popuptweetbtn = document.getElementById('popup-posttweet');
 let image='';
 
+//function to call post tweets API
 const postTweetAPI = async (url, data) => {
 const response = await fetch(url,{
   method: "POST",
@@ -29,13 +33,12 @@ const imgresponse = await fetch(url,{
 };
 
 
-const postTweet = () => {
+const postTweet = (content) => {
   const url = "http://localhost/twitter-clone-fullstack/backend/create-post-api.php";
-  const hometweetcontent = hometweetcontents.value;
-  console.log(hometweetcontent);
+  console.log(content);
   const data = {
     'userID': 2,
-    'content':hometweetcontent
+    'content':content
   }
 const res =  postTweetAPI(url, data).then((result) => {
     const post_id = result.postID;
@@ -62,7 +65,18 @@ const res =  postTweetAPI(url, data).then((result) => {
 };
 
 hometweetbtn.addEventListener("click", () => {
-postTweet();
+  const hometweetcontent = hometweetcontents.value;
+postTweet(hometweetcontent);
+});
+
+popuptweetbtn.addEventListener("click", () => {
+  const popuptweetcontent = popuptweetcontents.value;
+postTweet(popuptweetcontent);
+});
+
+popuptweetimg
+popuptweetimg.addEventListener('change', () => {
+image = popuptweetimg.files[0];
 });
 
 hometweetimg.addEventListener('change', () => {

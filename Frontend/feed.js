@@ -14,11 +14,9 @@ const popuptweetcontent = document.getElementById('popup-add-tweet');
 const popupposttweet = document.getElementById('popup-posttweet');
 const mobiletweet = document.getElementById('mobile-tweet');
 const tweetfeed = document.querySelector('.tweet-now');
-const searchinput = document.getElementById('search');
-const searchcontainer = document.querySelector('.search-suggest');
-const leftnavsearchicon = document.getElementById('search-icon');
-const mobilesearchicon = document.getElementById('mobile-searchicon');
-const mobilesearchpage = document.querySelector('.mobile-search');
+
+
+
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -49,9 +47,8 @@ const logoutContainerShow = () => {
 };
 
 // Function to submit tweet contents
-const submitTweet = (image, tweetcontent) => {
-  console.log(tweetcontent.value);
-  console.log(image);
+const submitTweet = () => {
+location.reload();
 };
 
 // function to display tweet container on mobiles
@@ -64,15 +61,7 @@ const mobileTweet = () => {
 
 };
 
-// function to display search suggestions container
-const displaySearch = () => {
-searchcontainer.classList.toggle('alwayshidden');
-};
 
-// function to display search page on small screens
-const displaySearchPage = () => {
-mobilesearchpage.classList.remove('alwayshidden');
-};
 
 
 
@@ -80,7 +69,6 @@ mobilesearchpage.classList.remove('alwayshidden');
 
 // Event Listeners
 inputimg.addEventListener("change", () => {
-console.log("hello");
 const chosenimage = document.querySelector('.tweet-now #chosenimage');
 displayChosenImg(cancelbtn, chosenimage);
 
@@ -126,7 +114,7 @@ homeposttweet.addEventListener("click", () => {
 
 popupposttweet.addEventListener("click", () => {
 
-  submitTweet(popupchosenimage, popuptweetcontent);
+  submitTweet();
 });
 
 mobiletweet.addEventListener("click", () => {
@@ -134,14 +122,7 @@ mobiletweet.addEventListener("click", () => {
 });
 
 
-searchinput.addEventListener("click", () => {
-  displaySearch();
-});
 
-leftnavsearchicon.addEventListener("click", () => {
-  displaySearchPage();
-});
-
-mobilesearchicon.addEventListener("click", () => {
-  displaySearchPage();
-});
+// searchinput.addEventListener("click", () => {
+//   displaySearch();
+// });
