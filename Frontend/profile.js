@@ -16,6 +16,11 @@ const searchcontainer = document.querySelector('.search-suggest');
 const leftnavsearchicon = document.getElementById('search-icon');
 const mobilesearchicon = document.getElementById('mobile-searchicon');
 const mobilesearchpage = document.querySelector('.mobile-search');
+const home_nav = document.getElementById('home').style.fontWeight = "lighter";
+const profile_nav = document.querySelector('.path').classList.remove("path");
+const editprofilepage = document.querySelector('.overlay');
+const editprofile = document.getElementById('edit-profile');
+const close_editprofile = document.getElementById('exit-edit');
 
 // Function to display users' chosen image
 const displayChosenImg = (btn, image) => {
@@ -71,7 +76,16 @@ const displaySearchPage = () => {
 mobilesearchpage.classList.remove('alwayshidden');
 };
 
+// function to display Edit Profile Page
+const showEditPage = () => {
+  editprofilepage.classList.remove('alwayshidden');
+};
 
+// function to close Edit Profile Page
+const closeEditPage = () => {
+  editprofilepage.classList.add('alwayshidden');
+
+};
 
 
 
@@ -125,4 +139,12 @@ leftnavsearchicon.addEventListener("click", () => {
 
 mobilesearchicon.addEventListener("click", () => {
   displaySearchPage();
+});
+
+editprofile.addEventListener("click", () => {
+  showEditPage();
+});
+
+close_editprofile.addEventListener("click", () => {
+  closeEditPage();
 });
