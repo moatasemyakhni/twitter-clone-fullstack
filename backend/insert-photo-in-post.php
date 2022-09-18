@@ -12,7 +12,7 @@
     $completeUrl = $path . $user . "." . $ext;
 
     //Actually saving the photo in the previous path
-    file_put_contents($path, file_get_contents($photo));
+    file_put_contents($completeUrl, file_get_contents($photo));
 
     $stmt = $mysqli->prepare("INSERT INTO post_photos VALUES(?, ?);");
     $stmt->bind_param("ds", $postID, $completeUrl);
