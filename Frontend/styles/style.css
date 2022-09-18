@@ -609,6 +609,7 @@ padding:2rem 0;
 }
 .head svg{
   width:20px;
+  cursor: pointer;
 }
 
 .head h1{
@@ -635,14 +636,35 @@ padding:2rem 0;
   width:700px;
 }
 .edit-picture{
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  background-image: url("../assets/pp.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100px;
   position: absolute;
   top:60%;
   left:4%;
   border-radius: 100px;
-  border: 1px solid white;
+  border: 5px solid white;
+}
+.edit-picture svg{
+  padding: 0.5rem;
+  align-self: center;
+  width: 60px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50px;
 }
 .edit-picture img{
   border-radius: 100px;
+}
+.change-label{
+  margin-top: 0!important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 .editprofile label{
   width: 90%;
@@ -659,6 +681,13 @@ padding:2rem 0;
 }
 /* Edit Profile Styling End */
 
+/* Change Profile Picture Styling Start */
+.changed-pp{
+  width: 50%;
+  align-self: center;
+
+}
+/* Change Profile Picture Styling End */
 
 
 /* Media queries */
