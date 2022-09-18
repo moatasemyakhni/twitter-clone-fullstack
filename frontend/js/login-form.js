@@ -14,13 +14,13 @@ loginBtn.addEventListener('click', (e) => {
         setLoginErrorMessage(`All fields are required`)
         return
     }
-    url = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/login-api.php"
+    const dbLoginUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/login-api.php"
     data = {
         "input": input.value,
         "password": loginPwd.value
     }
 
-    const canLogin = dbLogin(url, data)
+    const canLogin = dbLogin(dbLoginUrl, data)
         .then((d) => {
             console.log(d)
             if(!d.verified) {
@@ -33,7 +33,7 @@ loginBtn.addEventListener('click', (e) => {
             localStorage.setItem('name', d.name)
             localStorage.setItem('dob', d.dob)
             localStorage.setItem('profilePhoto', d.profilePhoto)
-            location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed-page.html")
+            location.replace("http://localhost/9-sefactory/twitter-clone-fullstack/frontend/feed.html")
         })
 
 })
