@@ -29,9 +29,9 @@ searchBar.addEventListener('input', () => {
     }
     const search = liveSearchAPIs(dbSearchUrl, {"nameUsername": searchBar.value})
         .then((d) => {
-            console.log(d)
+            //console.log(d)
             d.forEach((box) => {
-                console.log("box", box)
+                //console.log("box", box)
                 const sectionDiv = document.createElement('div')
                 sectionDiv.setAttribute('class', 'suggestion flex')
                 
@@ -102,7 +102,7 @@ searchBar.addEventListener('input', () => {
             const followBtn = document.querySelectorAll('.f-btn')
             followBtn.forEach((btn) => {
                 btn.addEventListener('click', () => {
-                    console.log(btn)
+                    //console.log(btn)
                     const friendID = btn.id.split('-')[2]
                     if(document.getElementById(`b-${localStorage.getItem('userID')}-${friendID}`).textContent == "UnBlock") {
                         return //we cant follow if blocked
@@ -111,14 +111,14 @@ searchBar.addEventListener('input', () => {
                         btn.textContent = "Unfollow"
                         
                         const follow = liveSearchAPIs(dbFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
-                            console.log(d)
+                            //console.log(d)
                         })
 
                     }else {
                         btn.textContent = "Follow"
                         // const friendID = btn.id.split('-')[2]
                         const unfollow = liveSearchAPIs(dbUnFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
-                            console.log(d)
+                            //console.log(d)
                             // console.log(followBtn.id)
                         })
                     }
@@ -127,12 +127,12 @@ searchBar.addEventListener('input', () => {
             const blockBtn = document.querySelectorAll('.b-btn')
             blockBtn.forEach((btn) => {
                 btn.addEventListener('click', () => {
-                    console.log(btn)
+                    //console.log(btn)
                     if(btn.textContent == "Block") {
                         btn.textContent = "UnBlock"
                         const friendID = btn.id.split('-')[2]
                         const block = liveSearchAPIs(dbBlockUrl, {"userID":localStorage.getItem('userID'), "blockedID": friendID}).then((d) => {
-                            console.log(d)
+                            //console.log(d)
                         })
                         
                         if(document.getElementById(`f-${localStorage.getItem('userID')}-${friendID}`).textContent == "Unfollow") {
@@ -143,7 +143,7 @@ searchBar.addEventListener('input', () => {
                         btn.textContent = "Block"
                         const friendID = btn.id.split('-')[2]
                         const unblock = liveSearchAPIs(dbUnblockUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
-                            console.log(d)
+                            //console.log(d)
                         })
                     }
                 })
