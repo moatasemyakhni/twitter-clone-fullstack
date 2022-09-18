@@ -1,0 +1,808 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+@font-face {
+font-family: 'hammersmith';
+src: url('../assets/fonts/HammersmithOne/HammersmithOne-Regular.ttf');
+}
+/* Common Styles */
+.flex{
+  display: flex;
+}
+.column{
+flex-direction: column;
+}
+.hidden{
+  display: none;
+}
+.alwayshidden{
+  display: none;
+}
+
+.hidden-item{
+  display: none;
+}
+
+ul{
+  list-style: none;
+}
+
+/* Feed page styling Start */
+.feed{
+  align-self:center;
+  padding-left: 20rem;
+}
+/* Navbar Styling Start */
+.navbar{
+  padding:0 2rem;
+  height: 100%;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden; }
+
+.right-nav{
+  position: fixed;
+  right:2%;
+  margin-top: 1rem;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+.search-bar{
+  width:100%;
+  align-items: center;
+  border-radius: 50px;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: 2rem;
+  background-color: rgb(239,243,244);
+  border: none;
+}
+
+
+.search-bar svg{
+  width: 20px;
+  opacity: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+  }
+
+.search{
+  padding-right: 2rem;
+  background-color: rgb(239,243,244);
+  border: none;
+  outline-width: 0;
+}
+.nav-profile-pic{
+  margin-bottom: 3rem;
+}
+.nav-twitter-logo img{
+  border-radius: 0!important;
+  width: 100px;
+  padding: 0 1rem;
+}
+.nav-profile-pic img{
+  border-radius: 50px;
+}
+.nav-item{
+  align-items: center;
+  padding: 1rem 1rem;
+}
+.nav-item:hover{
+  background-color: rgb(239,243,244);
+  border-radius: 50px;
+}
+.nav-item a{
+  text-decoration: none;
+  color: inherit;
+}
+.nav-item svg{
+  width:30px;
+  margin-right: 1rem;
+}
+
+.nav-item p{
+font-family: 'hammersmith';
+font-size: 1.5rem;
+font-weight: bold;
+}
+.path{
+  font-weight: lighter!important;
+}
+.nav-start{
+  margin-top: 4rem;
+}
+.ppicture img{
+  border-radius: 50px;
+}
+.tweet-btn{
+  cursor: pointer;
+  font-family: 'hammersmith';
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgb(29, 155, 240);
+  border: none;
+  color: white;
+  border-radius: 50px;
+  padding: 1rem 5rem;
+}
+.t-btn{
+  margin-top: 4rem;
+}
+.user-profile{
+  cursor: pointer;
+}
+.username-sec{
+margin-left: 0.5rem;
+}
+.full-name{
+  font-family: 'hammersmith';
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.user-name{
+  font-family: 'hammersmith';
+  color: grey;
+}
+/* Navbar Styling End */
+
+/* Feed Section Start */
+
+/* Heading Section Start */
+.feed-heading{
+  align-items: center;
+  flex-basis:70%;
+  padding-top: 2rem;
+  border: 1px solid lightgray;
+}
+
+.twitter-logo{
+  align-self: center;
+}
+
+.line{
+  margin-top: 2rem;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.tweet-now{
+  width:90%;
+}
+.add-tweet{
+  width:100%;
+  padding: 2rem 0;
+
+}
+
+.add-tweet textarea{
+  background-color: inherit;
+  padding: 1rem;
+  border: none;
+  outline-width: 0;
+  font-family: 'hammersmith';
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-bottom: 1px solid gray;
+  margin-left: 1rem;
+}
+.tweetimg-label{
+  width:30%;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.tweetimg-label svg{
+  width:30px;
+}
+.user-img img{
+  border-radius: 50px;
+}
+.home-image-input{
+  width: 30%;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.tweetnow-btns{
+  width:100%;
+  justify-content: space-between;
+}
+.cancelimg{
+  cursor: pointer;
+  font-family: 'hammersmith';
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgb(239,243,244);
+  border: none;
+  color: black;
+  border-radius: 50px;
+  padding: 0.5rem 2rem;
+}
+
+.btn-tweet-now{
+cursor: pointer;
+font-family: 'hammersmith';
+font-size: 1.2rem;
+font-weight: bold;
+background-color: rgb(29, 155, 240);
+border: none;
+color: white;
+border-radius: 50px;
+padding: 0.5rem 2rem;
+}
+/* Heading Section End */
+
+/* Tweets Section Start */
+.tweets{
+  padding: 2rem 0;
+  width:100%;
+  justify-content: center;
+  align-content: center;
+}
+.following-tweet{
+  align-self: center;
+  padding: 1rem 1rem;
+  width:80%;
+  background-color: rgb(239,243,244);
+  border-radius: 20px;
+  margin-bottom: 2rem;
+
+}
+.tweet-info{
+  flex-grow: 1;
+  padding: 0 1rem;
+
+}
+.tweet-info h4{
+  font-family: 'hammersmith';
+
+}
+.user-username{
+  color: gray;
+  font-family: 'hammersmith';
+  margin-bottom: 1rem;
+
+}
+.user-tweet{
+  font-family: 'hammersmith';
+  margin-bottom: 1rem;
+}
+.tweet-img{
+  justify-content: center;
+  align-self: center;
+}
+.tweet-img img{
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+.reactions{
+  margin-top: 1rem;
+  align-self: flex-end;
+  margin-right: 1rem;
+  align-items: center;
+
+}
+.reactions i{
+font-size: 1.5rem;
+color: gray;
+margin-right: 0.5rem;
+cursor:pointer;
+
+}
+/* Tweets Section End */
+
+/* Mobile Navbar Styling Start*/
+.mobile-nav{
+  display: none;
+  width:100vw;
+  height: 60px;
+  background-color: white;
+  align-items: center;
+  z-index: 10;
+}
+
+.mobile-nav-items{
+  justify-content:space-around;
+  width: 100%;
+}
+.mobile-nav-item svg{
+  width:30px;
+}
+
+.mobile-tweet{
+  display: none;
+  width:60px;
+  height:60px;
+  background-color: rgb(29, 155, 240);
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-tweet svg{
+  width: 30px;
+}
+/* Mobile Navbar Styling End*/
+
+/* logout container styling start */
+.logout{
+  padding: 2rem;
+  position: fixed;
+  bottom: 10%;
+  left:2%;
+  background-color: rgb(239,243,244);
+  border-radius: 20px;
+  z-index: 10;
+}
+.profile-logout{
+  margin-top: 1rem;
+  font-family: 'hammersmith';
+  font-size: 1rem;
+  color: black;
+  font-weight: normal;
+  cursor: pointer;
+}
+/* logout container styling end  */
+
+/* Tweet Popup Styling Start */
+.tweetpopup{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top:0;
+}
+.tweet-popup-container{
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  width:50%;
+}
+.tweet-popup-container svg{
+  width: 20px;
+  cursor:pointer;
+}
+.popupimage-input{
+  width: 30%;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+/* Tweet Popup Styling End */
+
+/* Right Section Styling Start */
+
+.suggestions{
+  margin-top: 7rem;
+  margin-left: 1rem;
+  background-color: rgb(239,243,244);
+  padding:1rem 1rem;
+  width:27%;
+  border-radius: 20px;
+  height: 40%;
+  }
+
+.suggestions h1{
+font-family: 'hammersmith';
+font-size: 1.5rem;
+margin-bottom: 1.5rem;
+}
+.suggest{
+  flex-grow: 1;
+}
+.suggestion{
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.username-section{
+  margin-left: 0.5rem;
+}
+.follow-btn{
+  background-color: black;
+  color: white;
+  height:30px;
+  padding:0 1rem;
+  font-family: "hammersmith";
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+/* Right Section Styling End */
+
+/* Search suggestions conatiner styling start */
+.search-suggest{
+  padding: 3rem;
+  position: fixed;
+  top: 8.5%;
+  right:2%;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 10;
+  box-shadow: 2px 5px rgb(239,243,244);
+}
+/* Search suggestions conatiner styling end */
+
+/* Mobile search section start */
+.mobile-search{
+  background: white;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  align-items: center;
+  padding: 2rem;
+  top:0;
+}
+.mobile-search-bar{
+  width:60%;
+  align-items: center;
+  border-radius: 50px;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: 2rem;
+  background-color: rgb(239,243,244);
+  border: none;
+}
+.mobile-search-bar svg {
+  width: 20px;
+  opacity: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+  }
+
+.mobilesearch{
+  width:100%;
+  background-color: rgb(239,243,244);
+  border: none;
+  outline-width: 0;
+}
+.results-list{
+  padding-top:3rem;
+  padding-left: 5rem;
+  width:80%;
+}
+.result{
+  margin-bottom: 2rem;
+}
+.mobile-search-picture{
+  margin-right: 2rem;
+}
+/* Mobile search section end */
+
+
+/* Profile Page Styling Start */
+.profile-name{
+  font-family: "hammersmith";
+  font-weight: bold;
+  font-size: 1.5rem;
+  align-self: flex-start;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
+}
+.cover-photo{
+  width: 100%;
+  height: 250px;
+  background-color:rgb(207,217,222);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.profile-picture{
+  position: absolute;
+  top:65%;
+  left:5%;
+  border-radius: 100px;
+  border: 1px solid white;
+}
+.profile-picture img{
+  border-radius: 100px;
+}
+
+.profile-info{
+  align-self: flex-start;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.profile-info h2{
+  font-family: "hammersmith";
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.profile-info p{
+  font-family: 'hammersmith';
+  color: grey;
+}
+
+.edit-profile{
+  align-self: flex-end;
+  margin-right: 2rem;
+  margin-left: 10rem;
+  font-family: "hammersmith";
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.stats{
+  align-self: flex-start;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+
+}
+
+.following-count{
+  margin-right: 1rem;
+  align-items: center;
+}
+
+.following{
+  margin-left: 0.3rem;
+  font-family: 'hammersmith';
+  color: grey;
+
+}
+.count{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.profile-line{
+  margin-top: 0!important;
+}
+
+.prof-title{
+  align-self: flex-start;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  border-bottom: 4px solid rgb(29, 155, 240);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.7rem;
+  cursor: pointer;
+}
+.prof-title h2{
+  font-family: "hammersmith";
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* Profile Page Styling End */
+
+/* Edit Profile Styling Start */
+.overlay{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  position: fixed;
+  top:0;
+  z-index: 10;
+}
+.editprofile{
+background-color: white;
+align-self: center;
+width:700px;
+border-radius: 20px;
+padding:2rem 0;
+}
+
+.head{
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  align-items: center;
+}
+.head svg{
+  width:20px;
+  cursor: pointer;
+}
+
+.head h1{
+  padding-left: 2rem;
+  font-family: "hammersmith";
+  font-weight: bold;
+  font-size: 1.3rem;
+  flex-basis: 80%;
+}
+
+.edit-save{
+  background-color: black;
+  color: white;
+  height:30px;
+  padding:0 1.5rem;
+  font-family: "hammersmith";
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+}
+.relative{
+  position: relative;
+  width:700px;
+}
+.edit-picture{
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  background-image: url("../assets/pp.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  position: absolute;
+  top:60%;
+  left:4%;
+  border-radius: 100px;
+  border: 5px solid white;
+}
+.edit-picture svg{
+  padding: 0.5rem;
+  align-self: center;
+  width: 60px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50px;
+}
+.edit-picture img{
+  border-radius: 100px;
+}
+.change-label{
+  margin-top: 0!important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.editprofile label{
+  width: 90%;
+  align-self: center;
+  margin-top: 5rem;
+}
+.change-name{
+  align-self: center;
+  width: 90%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  outline-width: 0;
+}
+/* Edit Profile Styling End */
+
+/* Change Profile Picture Styling Start */
+.changed-pp{
+  width: 50%;
+  align-self: center;
+
+}
+/* Change Profile Picture Styling End */
+
+
+/* Media queries */
+@media only screen and (max-width:1300px) {
+  .blue{
+    background-color: rgb(29, 155, 240);
+    border-radius: 50px;
+    width: 70%;
+    height: 20%;
+    align-self: center;
+    margin-top: 2rem;
+    }
+  .tweet{
+  }
+  .nav-profile-pic{
+    align-self: center;
+  }
+  .nav-item{
+    padding: 1rem 0;
+    justify-content: center;
+  }
+  .nav-item p{
+    display: none;
+  }
+  .nav-item svg{
+    margin: 0;
+  }
+  .navbar{
+    padding: 0;
+  }
+.t-btn{
+  display: none;
+}
+.hidden{
+  display: flex;
+}
+.feed{
+  align-self:center;
+  padding-left: 6.5rem;
+}
+.username-sec{
+  display: none;
+}
+.nav-end{
+  justify-content: center;
+}
+
+}
+
+@media only screen and (max-width:1100px) {
+.tweet-now{
+  width: 80%;
+}
+}
+
+@media only screen and (max-width:1050px) {
+
+  .profile-feed{
+    min-width: 600px;
+  }
+  .hidden-item{
+    display: flex;
+  }
+  .right-nav{
+    display: none;
+  }
+  .suggestions{
+    display: none;
+  }
+}
+
+@media only screen and (max-width:700px) {
+  .editprofile{
+    width:100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width:500px) {
+  .navbar{
+    display: none;
+  }
+  .feed{
+    padding: 0;
+  }
+  .tweet-now{
+    display: none;
+  }
+  .feed{
+    width: 100vw;
+  }
+  .feed-heading{
+    flex-basis: 100%;
+  }
+  .mobile-nav{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .mobile-tweet{
+    display: flex;
+    position: fixed;
+    right:3%;
+    bottom:10%;
+  }
+  .mobile-search-bar{
+    width:100%;
+  }
+  .results-list{
+    padding-left: 0;
+  }
+
+  .profile-feed{
+    min-width: 0;
+  }
+
+}
