@@ -22,17 +22,12 @@ const liveSearchAPIs = async (url, data) => {
 }
 
 searchBar.addEventListener('input', () => {
-    // if(!searchBar.value) {
-    //     searchContainer.classList.add('alwayshidden')
-    // }else {
-    //     searchContainer.classList.remove('alwayshidden')
-    // }
     let oldSearches = searchContainer.lastElementChild
     while(oldSearches) {
         searchContainer.removeChild(oldSearches)
         oldSearches = searchContainer.lastElementChild
     }
-    const search = searchAPI(dbSearchUrl, {"nameUsername": searchBar.value})
+    const search = liveSearchAPIs(dbSearchUrl, {"nameUsername": searchBar.value})
         .then((d) => {
             console.log(d)
             d.forEach((box) => {
@@ -74,7 +69,7 @@ searchBar.addEventListener('input', () => {
                 followBtn.setAttribute('class', 'follow-btn f-btn')
                 followBtn.setAttribute('name', 'button')
                 followBtn.setAttribute('id', `f-${localStorage.getItem('userID')}-${box.user_id}`)
-                const isFollowing = is_something(dbIsFollowerUrl, {"userID": localStorage.getItem('userID'), "friendID": box.user_id})
+                const isFollowing = liveSearchAPIs(dbIsFollowerUrl, {"userID": localStorage.getItem('userID'), "friendID": box.user_id})
                 .then((d) => {
                     if(d.following) {
 
@@ -88,7 +83,7 @@ searchBar.addEventListener('input', () => {
                 blockBtn.setAttribute('class', 'follow-btn b-btn')
                 blockBtn.setAttribute('name', 'button')
                 blockBtn.setAttribute('id', `b-${localStorage.getItem('userID')}-${box.user_id}`)
-                const isBlocking = is_something(dbIsBlockedUrl, {"userID": localStorage.getItem('userID'), "friendID": box.user_id})
+                const isBlocking = liveSearchAPIs(dbIsBlockedUrl, {"userID": localStorage.getItem('userID'), "friendID": box.user_id})
                 .then((d) => {
                     if(d.blocked) {
 
@@ -115,14 +110,14 @@ searchBar.addEventListener('input', () => {
                     if(btn.textContent == "Follow") {
                         btn.textContent = "Unfollow"
                         
-                        const follow = followAPI(dbFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
+                        const follow = liveSearchAPIs(dbFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
                             console.log(d)
                         })
 
                     }else {
                         btn.textContent = "Follow"
                         // const friendID = btn.id.split('-')[2]
-                        const unfollow = unFollowAPI(dbUnFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
+                        const unfollow = liveSearchAPIs(dbUnFollowUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
                             console.log(d)
                             // console.log(followBtn.id)
                         })
@@ -136,7 +131,7 @@ searchBar.addEventListener('input', () => {
                     if(btn.textContent == "Block") {
                         btn.textContent = "UnBlock"
                         const friendID = btn.id.split('-')[2]
-                        const block = blockAPI(dbBlockUrl, {"userID":localStorage.getItem('userID'), "blockedID": friendID}).then((d) => {
+                        const block = liveSearchAPIs(dbBlockUrl, {"userID":localStorage.getItem('userID'), "blockedID": friendID}).then((d) => {
                             console.log(d)
                         })
                         
@@ -147,7 +142,7 @@ searchBar.addEventListener('input', () => {
                     }else {
                         btn.textContent = "Block"
                         const friendID = btn.id.split('-')[2]
-                        const unblock = unBlockAPI(dbUnblockUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
+                        const unblock = liveSearchAPIs(dbUnblockUrl, {"userID":localStorage.getItem('userID'), "friendID": friendID}).then((d) => {
                             console.log(d)
                         })
                     }
