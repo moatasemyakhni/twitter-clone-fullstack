@@ -3,6 +3,8 @@ const getProfileUrl = "http://localhost/9-sefactory/twitter-clone-fullstack-ramz
 const feedName = document.querySelectorAll('.feed-profile-name')
 const feedUsername = document.querySelectorAll('.feed-profile-username')
 let feedLogoutUsername = document.querySelectorAll('.feed-profile-logout-username')
+const feedDob = document.querySelectorAll('.feed-profile-dob')
+
 const getProfile = async (url, data) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -26,5 +28,6 @@ const dbGetProfile = getProfile(getProfileUrl, {"userID": localStorage.getItem('
 feedName.forEach(name => name.textContent = localStorage.getItem('name'))
 feedUsername.forEach(username => username.textContent = localStorage.getItem('username'))
 feedLogoutUsername.forEach(usernameLogOut => usernameLogOut.textContent += localStorage.getItem('username'))
+feedDob.forEach(dob => dob.textContent = "Birthday: " + localStorage.getItem('dob') + " 🎂")
 
 

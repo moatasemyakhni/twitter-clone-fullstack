@@ -1,6 +1,6 @@
 const userID = localStorage.getItem('userID');
 
-const url ='http://localhost/twitter-clone-fullstack/backend/gettweets.php';
+const url ='http://localhost/9-sefactory/twitter-clone-fullstack/backend/gettweets.php';
 
 const data = {
   'userID': userID
@@ -100,7 +100,7 @@ const response = await fetch(url,{
 displayData(data);
 
 
-// const getData = () => {fetch('http://localhost/twitter-clone-fullstack/backend/gettweets.php')
+// const getData = () => {fetch('http://localhost/9-sefactory/twitter-clone-fullstack/backend/gettweets.php')
 //   .then((response) => response.json())
 //   .then((data) => displayData(data)
 // );};

@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="styles/style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="js/createpost.js" defer></script>
+      <script src="js/editprofile.js" defer></script>
+      <script src="js/selectProfile.js" defer></script>
    </head>
 
    <body>
@@ -15,7 +17,7 @@
             <nav class="navbar flex column">
                   <div class="nav-start flex column">
                     <div class="nav-profile-pic nav-twitter-logo">
-                      <img src="./assets/Twitter-logo.svg.png" width="70px" alt="">
+                      <img class="profile-photos" src="./assets/Twitter-logo.svg.png" width="70px" alt="">
                     </div>
                  <div class="nav-item flex"  >
                    <a class = "flex" href="feed.html">
@@ -70,7 +72,7 @@
                <div class="nav-end flex">
                  <div class="user-profile flex">
                    <div class="ppicture" id = "ppicture">
-                     <img src="./assets/pp.png" alt="" width = "50px">
+                     <img class="profile-photos" src="./assets/pp.png" alt="" width = "50px">
                    </div>
                    <div class="username-sec flex column">
                      <p class="full-name">Ramzi El Ashkar</p>
@@ -88,8 +90,8 @@
             <!-- logout container start-->
             <div class="logout flex column alwayshidden">
               <div class="user-profile flex">
-                <div class="ppicture" id = "ppicture">
-                  <img src="./assets/pp.png" alt="" width = "50px">
+                <div class="ppicture profile-photos" id = "ppicture">
+                  <img class="profile-photos" src="./assets/pp.png" alt="" width = "50px">
                 </div>
                 <div class="username-sec flex column">
                   <p class="full-name">Ramzi El Ashkar</p>
@@ -107,15 +109,16 @@
 <!-- Header Section Start -->
 
         <section class = "feed-heading  profile-feed flex column" id ="profile-feed">
-          <p class = "profile-name" id = "profile-name">Ramzi Ashkar</p>
+          <p class = "profile-name profile-photos" id = "profile-name"></p>
           <div class="cover-photo"><div class="profile-picture">
-            <img src="assets/pp.png"  alt="">
+            <img class="profile-photos" src="assets/pp.png" width="150px"  alt="">
           </div></div>
           <button type="button" name="edit" id="edit-profile" class="edit-profile">Edit Profile</button>
 
           <div class="profile-info flex column">
-            <h2 id ="full-name">Ramzi Ashkar</h2>
-            <p id="username">@AshkarRamzi</p>
+            <h2 class="feed-profile-name" id ="full-name"></h2>
+            <p class="feed-profile-username" id="username"></p>
+            <p class="feed-profile-dob" ></p>
           </div>
 
           <div class="stats flex">
@@ -244,7 +247,7 @@
          </a></li>
          <li class = "mobile-nav-item">
            <a href="profile.html">
-         <img src="./assets/pp.png" width= "30px" alt=""></a></li>
+         <img class="profile-photos" src="./assets/pp.png" width= "30px" alt=""></a></li>
        </ul>
      </nav>
 
@@ -314,7 +317,7 @@
        <div class="suggestion flex">
          <div class="user-profile suggest flex">
            <div class="ppicture" id = "ppicture">
-             <img src="./assets/pp.png" alt="" width = "50px">
+             <img class="profile-photos" src="./assets/pp.png" alt="" width = "50px">
            </div>
            <div class="username-section flex column">
              <p class="full-name">Ramzi El Ashkar</p>

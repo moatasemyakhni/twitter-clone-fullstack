@@ -37,7 +37,7 @@ const imgresponse = await fetch(url,{
 // function to insert image into database
 const postImg = (finalimage) => {
   console.log(finalimage);
-  const imageURL = "http://localhost/twitter-clone-fullstack/backend/insert-photo-in-post.php";
+  const imageURL = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/insert-photo-in-post.php";
   const imagedata = {
     'postID': post_id,
     'photo': finalimage
@@ -49,7 +49,7 @@ const photoresponse =  postImageAPI(imageURL, imagedata).then((result) => {
 
 // function to insert tweet into database
 const postTweet = (content) => {
-  const url = "http://localhost/twitter-clone-fullstack/backend/create-post-api.php";
+  const url = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/create-post-api.php";
   console.log("hii");
   const data = {
     'userID': userid,
