@@ -13,7 +13,7 @@
     $completeUrl = $path . $user . "." . $ext;
     
     //Actually saving the photo in the previous path
-    file_put_contents($path, file_get_contents($profilePhoto));
+    file_put_contents($completeUrl, file_get_contents($profilePhoto));
 
 
     $stmt = $mysqli->prepare("UPDATE users SET profile_photo=? WHERE user_id=?;");
