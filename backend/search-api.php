@@ -4,7 +4,7 @@
     $nameUsername = $data->nameUsername;
     $userID = $data->userID;
 
-    $stmt = $mysqli->prepare("SELECT * FROM users WHERE user_id!=? name LIKE concat('%', ?, '%') OR username LIKE concat('%', ?, '%') LIMIT 5;");
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE user_id!=? AND (name LIKE concat('%', ?, '%') OR username LIKE concat('%', ?, '%')) LIMIT 5;");
     $stmt->bind_param("dss", $userID, $nameUsername, $nameUsername);
     if(!$stmt->execute()) {
         die("Search Execution Failed");
