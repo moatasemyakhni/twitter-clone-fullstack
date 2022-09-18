@@ -4,7 +4,10 @@ const hometweetimg = document.querySelector('#capture');
 const popuptweetimg = document.getElementById('popupcapture');
 const popuptweetcontents = document.getElementById('popup-add-tweet');
 const popuptweetbtn = document.getElementById('popup-posttweet');
+let post_id ='';
 let image='';
+const userid = localStorage.getItem('userID');
+console.log(userid);
 
 //function to call post tweets API
 const postTweetAPI = async (url, data) => {
@@ -19,8 +22,7 @@ const response = await fetch(url,{
 };
 
 
-
-
+//function to call post tweets photos API
 const postImageAPI = async (url, data) => {
 const imgresponse = await fetch(url,{
   method: "POST",
@@ -32,38 +34,47 @@ const imgresponse = await fetch(url,{
   return imgresponse.json();
 };
 
+// function to insert image into database
+const postImg = (finalimage) => {
+  console.log(finalimage);
+  const imageURL = "http://localhost/twitter-clone-fullstack/backend/insert-photo-in-post.php";
+  const imagedata = {
+    'postID': post_id,
+    'photo': finalimage
+  };
+const photoresponse =  postImageAPI(imageURL, imagedata).then((result) => {
+    console.log(result);
+  });
+};
 
+// function to insert tweet into database
 const postTweet = (content) => {
   const url = "http://localhost/twitter-clone-fullstack/backend/create-post-api.php";
-  console.log(content);
+  console.log("hii");
   const data = {
-    'userID': 2,
+    'userID': userid,
     'content':content
   }
 const res =  postTweetAPI(url, data).then((result) => {
-    const post_id = result.postID;
+    post_id = result.postID;
     if (image!=''){
       const reader = new FileReader();
       reader.addEventListener('load', () => {
-          console.log(reader.result);
+          const finalimage = reader.result;
+          console.log(finalimage);
+          postImg(finalimage);
       });
-      finalimage = reader.readAsDataURL(image);
+       reader.readAsDataURL(image);
 
 
-      const imageURL = "http://localhost/twitter-clone-fullstack/backend/insert-photo-in-post.php";
-      const imagedata = {
-        'postID': post_id,
-        'photo': finalimage
-      };
-    const photoresponse =  postImageAPI(imageURL, imagedata).then((result) => {
-        console.log(result);
-      });
      }
   });
 
 
 };
 
+
+// Event Listeners
 hometweetbtn.addEventListener("click", () => {
   const hometweetcontent = hometweetcontents.value;
 postTweet(hometweetcontent);

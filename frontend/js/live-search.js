@@ -27,7 +27,7 @@ searchBar.addEventListener('input', () => {
         searchContainer.removeChild(oldSearches)
         oldSearches = searchContainer.lastElementChild
     }
-    const search = liveSearchAPIs(dbSearchUrl, {"nameUsername": searchBar.value})
+    const search = liveSearchAPIs(dbSearchUrl, {"nameUsername": searchBar.value, "userID": localStorage.getItem('userID')})
         .then((d) => {
             //console.log(d)
             d.forEach((box) => {
