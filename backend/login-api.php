@@ -42,7 +42,10 @@
         $response = [
             "verified" => true,
             "userID" => $response[0]['user_id'],
-            "username" => $response[0]['username']
+            "username" => $response[0]['username'],
+            "name" => $response[0]['name'],
+            "dob" => $response[0]['date_of_birth'],
+            "profilePhoto" => $response[0]['profile_photo']
         ];
     }else {
         $response = ["verified" => false, "correctPwd" => false];

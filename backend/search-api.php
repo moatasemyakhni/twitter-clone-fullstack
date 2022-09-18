@@ -3,7 +3,7 @@
     $data = json_decode(file_get_contents("php://input"));
     $nameUsername = $data->nameUsername;
 
-    $stmt = $mysqli->prepare("SELECT * FROM users WHERE name LIKE concat('%', ?, '%') OR username LIKE concat('%', ?, '%');");
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE name LIKE concat('%', ?, '%') OR username LIKE concat('%', ?, '%') LIMIT 5;");
     $stmt->bind_param("ss", $nameUsername, $nameUsername);
     if(!$stmt->execute()) {
         die("Search Execution Failed");
