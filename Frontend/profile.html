@@ -16,7 +16,7 @@
                     <div class="nav-profile-pic nav-twitter-logo">
                       <img src="./assets/Twitter-logo.svg.png" width="70px" alt="">
                     </div>
-                 <div class="nav-item flex">
+                 <div class="nav-item flex"  >
                    <a class = "flex" href="feed.html">
                    <svg viewBox="0 0 24 24" aria-hidden="true" class="">
                    <g><path d="M22.58 7.35L12.475 1.897c-.297-.16-.654-.16-.95 0L1.425
@@ -24,7 +24,7 @@
                       1.59 11.25c.216 1.214 1.31 2.062 2.66 2.062h9.282c1.35 0 2.444-.848 2.662-2.088l1.588-11.225.737.398c.485.263 1.092.082
                       1.354-.404.263-.486.08-1.093-.404-1.355zM12 15.435c-1.795 0-3.25-1.455-3.25-3.25s1.455-3.25 3.25-3.25 3.25 1.455 3.25
                       3.25-1.455 3.25-3.25 3.25z"></path></g></svg>
-                      <p class ="Home-path">Home</p>
+                      <p class ="Home-path" id = "home">Home</p>
                       </a>
             </div>
                  <div class="nav-item flex hidden-item" id="search-icon">
@@ -37,7 +37,7 @@
                    </a>
 
                  </div>
-                 <div class="nav-item flex">
+                 <div class="nav-item flex" >
                    <a class = "flex" href="#">
                    <svg viewBox="0 0 24 24" aria-hidden="true" class=""><g>
                       <path d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93
@@ -49,7 +49,7 @@
                        1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576
                        1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85
                        6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"></path></g></svg>
-                       <p class ="path">Profile</p>
+                       <p class ="path" id="profile">Profile</p>
                        </a>
                  </div>
                  <div class="nav-item hidden blue" id = "leftnav-tweet">
@@ -107,10 +107,9 @@
 
         <section class = "feed-heading  profile-feed flex column" id ="profile-feed">
           <p class = "profile-name" id = "profile-name">Ramzi Ashkar</p>
-          <div class="cover-photo"></div>
-          <div class="profile-picture">
+          <div class="cover-photo"><div class="profile-picture">
             <img src="assets/pp.png"  alt="">
-          </div>
+          </div></div>
           <button type="button" name="edit" id="edit-profile" class="edit-profile">Edit Profile</button>
 
           <div class="profile-info flex column">
@@ -396,6 +395,31 @@
 
    </div>
    </section>
+
+   <div class="overlay flex column alwayshidden">
+   <div class = "editprofile flex column">
+     <div class="head flex">
+       <svg viewBox="0 0 24 24" aria-hidden="true" id = "exit-edit" class=""><g>
+         <path d="M13.414 12l5.793-5.793c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414
+         0L12 10.586 6.207 4.793c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L10.586
+         12l-5.793 5.793c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293L12
+         13.414l5.793 5.793c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L13.414
+          12z"></path></g></svg>
+          <h1>Edit Profile</h1>
+          <button type="button" class= "edit-save" id ="edit save" name="button">Save</button>
+     </div>
+     <div class="profile-edit flex column">
+       <div class="cover-photo relative"><div class="edit-picture">
+         <img src="assets/pp.png"  alt="">
+       </div></div>
+
+     </div>
+
+     <label for="change-name">Name</label>
+     <input type="text" class="change-name" name="fullname" id ="change-name" autocomplete="off">
+   </div>
+ </div>
+
 
      <script type="text/javascript" src="profile.js"></script>
    </body>
