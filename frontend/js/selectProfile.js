@@ -1,5 +1,5 @@
 const photos = document.querySelectorAll('.profile-photos')
-const getProfileUrl = "http://localhost/9-sefactory/twitter-clone-fullstack-ramzi/Frontend/get-profile-api.php"
+const getProfileUrl = "http://localhost/9-sefactory/twitter-clone-fullstack/backend/get-profile-api.php"
 const feedName = document.querySelectorAll('.feed-profile-name')
 const feedUsername = document.querySelectorAll('.feed-profile-username')
 let feedLogoutUsername = document.querySelectorAll('.feed-profile-logout-username')
